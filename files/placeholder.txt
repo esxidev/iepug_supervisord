@@ -1,0 +1,2 @@
+Place holder file for the files directory.
+All generated content will be created in this directory.
