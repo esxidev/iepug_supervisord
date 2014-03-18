@@ -44,14 +44,14 @@ def process_file():
 	# If the there is no last line processed, set it to 1;
 	# otherwise, convert what was read to int
 	if last_line_processed == '':
-		last_line_processed = 1
+		last_line_processed = 0
 	else:
 		last_line_processed = int(last_line_processed)
 
 	# Read one line for each line
-	for i in range(line_limit):
+	for i in range(1, line_limit):
 		# Calculate the line to continue on
-		line_no = last_line_processed + line_limit
+		line_no = last_line_processed + i
 		# Read in one line...
 		log_line = linecache.getline(source_file, line_no)
 		# ...and write it to the destination
@@ -82,8 +82,8 @@ def log_meta_data(start_dt, end_dt, count, last_line):
 	# Setup a doc to track supervisord metrics
 	print 'Log meta data:'
 	print '\tStart datetime: %s' % (str(start_dt))
-	print '\tLast line number %i' % (last_line)
 	print '\tProcessed %i lines' % (count)
+	print '\tLast line number %i' % (last_line)
 	print '\tEnd datetime: %s' % (str(end_dt))
 
 if __name__ == "__main__":
